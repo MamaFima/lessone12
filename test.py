@@ -11,6 +11,6 @@ text = soup.find_all("span", class_="text")
 author = soup.find_all("small", class_="author")
 
 for i in range(len(text)):
-    print(f"Цитата номер - {i + 1}")
-    print(text[i].text)
-    print(f"Автор цитаты - {author[i].text}\n")
+   print(f"Цитата номер - {i + 1}")
+   print(text[i].text)
+   print(f"Автор цитаты - {author[i].text}\n")
