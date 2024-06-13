@@ -8,15 +8,18 @@ def get_english_words():
         response = requests.get(url)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
-        english_word = soup.find("div", id="random_word").text.strip()
-        word_definition = soup.find("div", id="random_word_definition").text.strip()
+        english_word_element = soup.find("div", id="random_word")
+        word_definition_element = soup.find("div", id="random_word_definition")
 
-        if english_word is None or word_definition is None:
+        if english_word_element is None or word_definition_element is None:
             print("Не удалось найти необходимые элементы на странице")
             return None
 
+        english_words = english_word_element.text.strip()
+        word_definition = word_definition_element.text.strip()
+
         translator = Translator(to_lang="ru")
-        translated_word = translator.translate(english_word)
+        translated_word = translator.translate(english_words)
         translated_definition = translator.translate(word_definition)
 
         return {
@@ -54,6 +57,5 @@ def word_game():
             break
 
 word_game()
-
 
 
