@@ -46,7 +46,7 @@ pip install requests beautifulsoup4 translate
 
 Запустите игровой скрипт:
 ```bash
-python igra.py
+python igra1.py
 ```
 
 ## Объяснение кода
